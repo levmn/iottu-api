@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "NysLab8AVjXGCoZo5H7+B+74TkJsMc2WhVZ8QCj8ef4=",
+  "Source": "IottuApi",
+  "BasePath": "_content/IottuApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

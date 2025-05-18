@@ -9,14 +9,13 @@ namespace IottuApi.Controllers;
 public class MotoController
 (
     MotoService motoService
-    : ControllerBase
-)
+) : ControllerBase
 {
     [HttpGet]
     public IActionResult Get()
     {
         var motos = motoService.GetMotos();
-        return motos.Count == 0 ? NoCotent() : Ok(motos);
+        return motos.Count == 0 ? NoContent() : Ok(motos);
     }
 
     [HttpGet("{id}")]

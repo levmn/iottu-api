@@ -1,0 +1,12 @@
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/bin/Debug/net9.0/IottuModel.deps.json
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/bin/Debug/net9.0/IottuModel.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/bin/Debug/net9.0/IottuModel.pdb
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/IottuModel.GeneratedMSBuildEditorConfig.editorconfig
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/IottuModel.AssemblyInfoInputs.cache
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/IottuModel.AssemblyInfo.cs
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/IottuModel.csproj.CoreCompileInputs.cache
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/IottuModel.sourcelink.json
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/IottuModel.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/refint/IottuModel.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/IottuModel.pdb
+/Users/levimagni/coding/fiap/iottu-api/IottuModel/obj/Debug/net9.0/ref/IottuModel.dll
