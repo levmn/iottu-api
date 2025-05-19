@@ -1,43 +1,41 @@
 @baseUrl = http://localhost:5203
 
 ### 🟢 GET - Listar todas as motos
-GET {{baseUrl}}/api/Motos
+GET {{baseUrl}}/api/Moto
 Accept: application/json
 
 ### 🔵 POST - Criar uma nova moto
-POST {{baseUrl}}/api/Motos
+POST {{baseUrl}}/api/Moto
 Content-Type: application/json
 
 {
   "placa": "ABC-1234",
-  "modelo": "Honda CG 160",
   "chassi": "9CG1C1234567890123",
   "numeroMotor": "1234567890",
-  "modelo": "2022",
+  "modelo": "Honda CG 160",
   "status": "Ativo",
   "tagId": 1,
   "patioId": 1
 }
 
 ### 🟡 GET - Obter moto por ID
-GET {{baseUrl}}/api/Motos/1
+GET {{baseUrl}}/api/Moto/1
 Accept: application/json
 
 ### 🟠 PUT - Atualizar moto por ID
-PUT {{baseUrl}}/api/Motos/1
+PUT {{baseUrl}}/api/Moto/1
 Content-Type: application/json
 
 {
   "placa": "XYZ-5678",
-  "modelo": "Honda CG 160",
   "chassi": "9CG1C1234567890123",
   "numeroMotor": "1234567890",
-  "modelo": "2023",
+  "modelo": "Honda CG 160",
   "status": "Ativo",
   "tagId": 1,
   "patioId": 1
 }
 
 ### 🔴 DELETE - Remover moto por ID
-DELETE {{baseUrl}}/api/Motos/1
+DELETE {{baseUrl}}/api/Moto/1
 Accept: application/json

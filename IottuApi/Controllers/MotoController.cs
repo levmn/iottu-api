@@ -37,9 +37,15 @@ public class MotoController
     [HttpPut("{id}")]
     public IActionResult Put(int id, [FromBody] MotoModel moto)
     {
-        if (moto == null || moto.Id != id)
+        if (moto == null)
             return BadRequest("Moto inválida.");
-        return motoService.Update(moto) ? NoContent() : NotFound();
+
+        moto.Id = id;
+
+        if (!motoService.Update(moto))
+            return NotFound();
+
+        return Ok(moto);
     }
 
     [HttpDelete("{id}")]
