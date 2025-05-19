@@ -29,6 +29,9 @@
               "/Users/levimagni/coding/fiap/iottu-api/IottuBusiness/IottuBusiness.csproj": {
                 "projectPath": "/Users/levimagni/coding/fiap/iottu-api/IottuBusiness/IottuBusiness.csproj"
               },
+              "/Users/levimagni/coding/fiap/iottu-api/IottuData/IottuData.csproj": {
+                "projectPath": "/Users/levimagni/coding/fiap/iottu-api/IottuData/IottuData.csproj"
+              },
               "/Users/levimagni/coding/fiap/iottu-api/IottuModel/IottuModel.csproj": {
                 "projectPath": "/Users/levimagni/coding/fiap/iottu-api/IottuModel/IottuModel.csproj"
               }
@@ -51,6 +54,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.3, )"
@@ -200,6 +207,10 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
               "target": "Package",
               "version": "[9.0.5, )"
             },

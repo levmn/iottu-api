@@ -62,3 +62,13 @@
 /Users/levimagni/coding/fiap/iottu-api/IottuApi/obj/Debug/net9.0/IottuApi.pdb
 /Users/levimagni/coding/fiap/iottu-api/IottuApi/obj/Debug/net9.0/IottuApi.genruntimeconfig.cache
 /Users/levimagni/coding/fiap/iottu-api/IottuApi/obj/Debug/net9.0/ref/IottuApi.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/DotNetEnv.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.Configuration.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.Configuration.FileExtensions.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Json.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.Configuration.UserSecrets.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.FileProviders.Physical.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Microsoft.Extensions.FileSystemGlobbing.dll
+/Users/levimagni/coding/fiap/iottu-api/IottuApi/bin/Debug/net9.0/Sprache.dll

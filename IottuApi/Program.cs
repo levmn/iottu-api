@@ -1,18 +1,30 @@
 using IottuBusiness;
+using IottuData;
+using DotNetEnv;
+using Microsoft.EntityFrameworkCore;
+using Oracle.EntityFrameworkCore; 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+Env.Load();
+
+var dbUser = Environment.GetEnvironmentVariable("DB_USER");
+var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+var baseConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+
+var connectionString = $"User Id={dbUser};Password={dbPassword};{baseConnection}";
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseOracle(connectionString));
+
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-// builder.Services.AddScoped<MotoService>();
-builder.Services.AddSingleton<MotoService>(); // Para testar a API com dados em memória
+builder.Services.AddScoped<MotoService>();
+// builder.Services.AddSingleton<MotoService>(); // Para testar a API com dados em memória
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
