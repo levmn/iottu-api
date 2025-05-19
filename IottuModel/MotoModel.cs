@@ -1,4 +1,5 @@
 namespace IottuModel
+
 {
     public class MotoModel
     {
@@ -8,7 +9,11 @@ namespace IottuModel
         public string NumeroMotor { get; set; } = string.Empty;
         public string Modelo { get; set; } = string.Empty;
         public required string Status { get; set; }
+
         public int TagId { get; set; }
+        public TagModel Tag { get; set; } = null!;
+
         public int PatioId { get; set; }
+        public PatioModel Patio { get; set; } = null!;
     }
 }
