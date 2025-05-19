@@ -5,5 +5,5 @@ namespace IottuData;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    public DbSet<MotoModel> Motos { get; set; }
+    public DbSet<MotoModel> Moto { get; set; }
 }
