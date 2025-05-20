@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\IottuData\IottuData.csproj" />
     <ProjectReference Include="..\IottuModel\IottuModel.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.5" />
   </ItemGroup>
 
   <PropertyGroup>
