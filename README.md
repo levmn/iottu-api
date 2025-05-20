@@ -88,7 +88,7 @@ Content-Type: application/json
 
 ## 🧑‍💻 Desenvolvedores
 
-[RM558948] Allan Brito Moreira
-[RM558868] Caio Liang 
-[RM98276] Levi Magni
+- [RM558948] [Allan Brito Moreira](https://github.com/Allanbm100)
+- [RM558868] [Caio Liang](https://github.com/caioliang)
+- [RM98276] [Levi Magni](https://github.com/levmn)
 
