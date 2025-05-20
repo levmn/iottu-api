@@ -2,7 +2,7 @@ using IottuBusiness;
 using IottuData;
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
-using Oracle.EntityFrameworkCore; 
+using Oracle.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +20,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<MotoService>();
+builder.Services.AddScoped<AntenaService>();
+builder.Services.AddScoped<TagService>();
+builder.Services.AddScoped<PatioService>();
 // builder.Services.AddSingleton<MotoService>(); // Para testar a API com dados em memória
 
 var app = builder.Build();
