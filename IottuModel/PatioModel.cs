@@ -1,5 +1,4 @@
 namespace IottuModel
-
 {
     public class PatioModel
     {

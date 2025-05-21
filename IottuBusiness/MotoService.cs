@@ -1,25 +1,36 @@
 ﻿using IottuModel;
+using IottuData;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IottuBusiness;
 
 public class MotoService
 {
-    private static readonly List<MotoModel> _motos = new();
-    private static int _nextId = 1;
+    private readonly AppDbContext _context;
 
-    public List<MotoModel> GetMotos() => _motos;
-    public MotoModel? GetMotoById(int id) => _motos.FirstOrDefault(m => m.Id == id);
+    public MotoService(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public List<MotoModel> GetMotos() =>
+        _context.Moto.ToList();
+
+    public MotoModel? GetMotoById(int id) =>
+        _context.Moto.FirstOrDefault(m => m.Id == id);
 
     public MotoModel Create(MotoModel moto)
     {
-        moto.Id = _nextId++;
-        _motos.Add(moto);
+        Console.WriteLine("Criando moto no banco Oracle...");
+        _context.Moto.Add(moto);
+        _context.SaveChanges();
         return moto;
     }
 
     public bool Update(MotoModel moto)
     {
-        var existingMoto = GetMotoById(moto.Id);
+        var existingMoto = _context.Moto.Find(moto.Id);
         if (existingMoto == null) return false;
 
         existingMoto.Placa = moto.Placa;
@@ -30,15 +41,17 @@ public class MotoService
         existingMoto.TagId = moto.TagId;
         existingMoto.PatioId = moto.PatioId;
 
+        _context.SaveChanges();
         return true;
     }
 
     public bool Delete(int id)
     {
-        var moto = GetMotoById(id);
+        var moto = _context.Moto.Find(id);
         if (moto == null) return false;
 
-        _motos.Remove(moto);
+        _context.Moto.Remove(moto);
+        _context.SaveChanges();
         return true;
     }
 }

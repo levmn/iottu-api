@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IottuData")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d1603e6bd72a73811d1ea89798b6f7184a3004c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3089bd3dc82ab56d010c3183b108da36c42909c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("IottuData")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IottuData")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

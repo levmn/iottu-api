@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:5203
+
+### 🟢 GET - Listar todas as tags
+GET {{baseUrl}}/api/Tag
+Accept: application/json
+
+### 🔵 POST - Criar uma nova tag
+POST {{baseUrl}}/api/Tag
+Content-Type: application/json
+
+{
+  "codigoRFID": "RFID12345",
+  "ssidWifi": "WiFi-Network",
+  "latitude": -23.5505,
+  "longitude": -46.6333,
+  "dataHora": "2023-11-10T14:30:00",
+  "antenaId": 1
+}
+
+### 🟡 GET - Obter tag por ID
+GET {{baseUrl}}/api/Tag/1
+Accept: application/json
+
+### 🟠 PUT - Atualizar tag por ID
+PUT {{baseUrl}}/api/Tag/1
+Content-Type: application/json
+
+{
+  "codigoRFID": "RFID67890",
+  "ssidWifi": "WiFi-Updated",
+  "latitude": -23.5505,
+  "longitude": -46.6333,
+  "dataHora": "2023-11-10T15:45:00",
+  "antenaId": 1
+}
+
+### 🔴 DELETE - Remover tag por ID
+DELETE {{baseUrl}}/api/Tag/1
+Accept: application/json

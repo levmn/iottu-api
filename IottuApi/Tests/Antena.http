@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:5203
+
+### 🟢 GET - Listar todas as antenas
+GET {{baseUrl}}/api/Antena
+Accept: application/json
+
+### 🔵 POST - Criar uma nova antena
+POST {{baseUrl}}/api/Antena
+Content-Type: application/json
+
+{
+  "codigo": "ANT001",
+  "latitude": -23.5505,
+  "longitude": -46.6333,
+  "patioId": 1
+}
+
+### 🟡 GET - Obter antena por ID
+GET {{baseUrl}}/api/Antena/1
+Accept: application/json
+
+### 🟠 PUT - Atualizar antena por ID
+PUT {{baseUrl}}/api/Antena/1
+Content-Type: application/json
+
+{
+  "codigo": "ANT002",
+  "latitude": -23.5605,
+  "longitude": -46.6433,
+  "patioId": 1
+}
+
+### 🔴 DELETE - Remover antena por ID
+DELETE {{baseUrl}}/api/Antena/1
+Accept: application/json

@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:5203
+
+### 🟢 GET - Listar todos os pátios
+GET {{baseUrl}}/api/Patio
+Accept: application/json
+
+### 🔵 POST - Criar um novo pátio
+POST {{baseUrl}}/api/Patio
+Content-Type: application/json
+
+{
+  "cep": "01234-567",
+  "numero": "123",
+  "cidade": "São Paulo",
+  "estado": "SP",
+  "capacidade": 50,
+  "responsavelId": 1
+}
+
+### 🟡 GET - Obter pátio por ID
+GET {{baseUrl}}/api/Patio/1
+Accept: application/json
+
+### 🟠 PUT - Atualizar pátio por ID
+PUT {{baseUrl}}/api/Patio/1
+Content-Type: application/json
+
+{
+  "cep": "09876-543",
+  "numero": "456",
+  "cidade": "São Paulo",
+  "estado": "SP",
+  "capacidade": 75,
+  "responsavelId": 1
+}
+
+### 🔴 DELETE - Remover pátio por ID
+DELETE {{baseUrl}}/api/Patio/1
+Accept: application/json

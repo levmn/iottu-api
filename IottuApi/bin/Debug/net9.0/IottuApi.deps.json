@@ -1549,6 +1549,7 @@
       },
       "IottuData/1.0.0": {
         "dependencies": {
+          "DotNetEnv": "3.1.1",
           "IottuModel": "1.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.5",
           "Microsoft.Extensions.Configuration.UserSecrets": "9.0.5",

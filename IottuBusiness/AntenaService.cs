@@ -1,26 +1,36 @@
 using IottuModel;
+using IottuData;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IottuBusiness;
 
 public class AntenaService
 {
-    private static readonly List<AntenaModel> _antenas = new();
-    private static int _nextId = 1;
+    private readonly AppDbContext _context;
 
-    public List<AntenaModel> GetAntenas() => _antenas;
+    public AntenaService(AppDbContext context)
+    {
+        _context = context;
+    }
 
-    public AntenaModel? GetAntenaById(int id) => _antenas.FirstOrDefault(a => a.Id == id);
+    public List<AntenaModel> GetAntenas() =>
+        _context.Antena.ToList();
+
+    public AntenaModel? GetAntenaById(int id) =>
+        _context.Antena.FirstOrDefault(a => a.Id == id);
 
     public AntenaModel Create(AntenaModel antena)
     {
-        antena.Id = _nextId++;
-        _antenas.Add(antena);
+        Console.WriteLine("Criando antena no banco Oracle...");
+        _context.Antena.Add(antena);
+        _context.SaveChanges();
         return antena;
     }
 
     public bool Update(AntenaModel antena)
     {
-        var existingAntena = GetAntenaById(antena.Id);
+        var existingAntena = _context.Antena.Find(antena.Id);
         if (existingAntena == null) return false;
 
         existingAntena.Codigo = antena.Codigo;
@@ -28,16 +38,17 @@ public class AntenaService
         existingAntena.Longitude = antena.Longitude;
         existingAntena.PatioId = antena.PatioId;
 
+        _context.SaveChanges();
         return true;
     }
 
     public bool Delete(int id)
     {
-        var antena = GetAntenaById(id);
+        var antena = _context.Antena.Find(id);
         if (antena == null) return false;
 
-        _antenas.Remove(antena);
+        _context.Antena.Remove(antena);
+        _context.SaveChanges();
         return true;
     }
-
 }

@@ -1,26 +1,36 @@
 using IottuModel;
+using IottuData;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IottuBusiness;
 
 public class PatioService
 {
-    private static readonly List<PatioModel> _patios = new();
-    private static int _nextId = 1;
+    private readonly AppDbContext _context;
 
-    public List<PatioModel> GetPatios() => _patios;
+    public PatioService(AppDbContext context)
+    {
+        _context = context;
+    }
 
-    public PatioModel? GetPatioById(int id) => _patios.FirstOrDefault(p => p.Id == id);
+    public List<PatioModel> GetPatios() =>
+        _context.Patio.ToList();
+
+    public PatioModel? GetPatioById(int id) =>
+        _context.Patio.FirstOrDefault(p => p.Id == id);
 
     public PatioModel Create(PatioModel patio)
     {
-        patio.Id = _nextId++;
-        _patios.Add(patio);
+        Console.WriteLine("Criando pátio no banco Oracle...");
+        _context.Patio.Add(patio);
+        _context.SaveChanges();
         return patio;
     }
 
     public bool Update(PatioModel patio)
     {
-        var existingPatio = GetPatioById(patio.Id);
+        var existingPatio = _context.Patio.Find(patio.Id);
         if (existingPatio == null) return false;
 
         existingPatio.Cep = patio.Cep;
@@ -29,19 +39,18 @@ public class PatioService
         existingPatio.Estado = patio.Estado;
         existingPatio.Capacidade = patio.Capacidade;
         existingPatio.ResponsavelId = patio.ResponsavelId;
-        existingPatio.Responsavel = patio.Responsavel;
-        existingPatio.Motos = patio.Motos;
-        existingPatio.Antenas = patio.Antenas;
 
+        _context.SaveChanges();
         return true;
     }
 
     public bool Delete(int id)
     {
-        var patio = GetPatioById(id);
+        var patio = _context.Patio.Find(id);
         if (patio == null) return false;
 
-        _patios.Remove(patio);
+        _context.Patio.Remove(patio);
+        _context.SaveChanges();
         return true;
     }
 }

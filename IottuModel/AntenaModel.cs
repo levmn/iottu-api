@@ -8,6 +8,8 @@ namespace IottuModel
         public required double Longitude { get; set; }
 
         public int PatioId { get; set; }
-        public PatioModel Patio { get; set; } = null!;
+        public PatioModel? Patio { get; set; }
+
+        public ICollection<TagModel>? Tags { get; set; }
     }
 }
