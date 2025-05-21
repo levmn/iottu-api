@@ -1,10 +1,10 @@
 # 🛜 Iottu
 
-**Iottu** é um sistema inteligente de localização e controle de motos, desenvolvido como solução para um desafio real enfrentado pela **Mottu**, startup que oferece aluguel de motos e plataforma de entregas para empresas. A proposta surgiu a partir do *Challenge* do curso de **Análise e Desenvolvimento de Sistemas** da **FIAP**, com o objetivo de resolver ineficiências no inventário e gerenciamento da frota de motos distribuída em mais de 100 pátios físicos com plantas não padronizadas.
+**Iottu** é um sistema de localização e controle de motos, desenvolvido como solução para um desafio real enfrentado pela **Mottu**, startup que oferece aluguel de motos e plataforma de entregas para empresas. A proposta surgiu a partir do *Challenge* do curso de **Análise e Desenvolvimento de Sistemas** da **FIAP**, com o objetivo de resolver ineficiências no inventário e gerenciamento da frota de motos distribuída em mais de 100 pátios físicos com plantas não padronizadas.
 
 ## 🚀 Solução
 
-O **Iottu** propõe uma solução baseada em **dispositivos IoT embarcados** e comunicação via **rede Wi-Fi em malha**, para estimar com precisão a **localização** das motos dentro dos pátios, além de fornecer um **dashboard interativo** para controle e visualização em tempo real.
+**Iottu** propõe uma solução baseada em **dispositivos IoT embarcados** e comunicação via **rede Wi-Fi em malha**, para estimar com precisão a **localização** das motos dentro dos pátios, além de fornecer um **dashboard interativo** para controle e visualização em tempo real.
 
 O sistema permite o cadastro e gerenciamento de:
 
@@ -21,7 +21,7 @@ O projeto segue uma arquitetura em camadas, dividida em:
 - `IottuApi`: Camada de API (Controllers)
 - `IottuBusiness`: Camada de regras de negócio (Services)
 - `IottuModel`: Camada de entidades (Models)
-- `IottuData`: Repositórios e camada de persistência
+- `IottuData`: Repositórios e camada de persistência (Migrations)
 
 ## 🛠️ Tecnologias Utilizadas
 
