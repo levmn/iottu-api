@@ -10,6 +10,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<TagModel> Tag { get; set; }
     public DbSet<UsuarioModel> Usuario { get; set; }
     public DbSet<PatioModel> Patio { get; set; }
+    public DbSet<StatusMotoModel> Status { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -38,6 +39,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .WithMany(u => u.PatiosResponsaveis)
             .HasForeignKey(p => p.ResponsavelId)
             .IsRequired(false);
+
+        modelBuilder.Entity<MotoModel>()
+            .HasOne(m => m.Status)
+            .WithMany(s => s.Motos)
+            .HasForeignKey(m => m.StatusId);
 
         base.OnModelCreating(modelBuilder);
     }

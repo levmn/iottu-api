@@ -51,6 +51,22 @@ A API possui os seguintes recursos disponíveis via HTTP:
 - [.NET 8 SDK](https://dotnet.microsoft.com/download)
 - Visual Studio ou VS Code
 
+### Configuração do Ambiente
+
+O projeto utiliza variáveis de ambiente para configuração. Existem dois arquivos importantes:
+
+- `.env.sample`: Arquivo de exemplo que contém todas as variáveis necessárias com valores padrão
+- `.env`: Arquivo real com as configurações do ambiente (não versionado)
+
+Para configurar o ambiente:
+
+1. Copie o arquivo `.env.sample` para `.env`
+2. Ajuste os valores no arquivo `.env` de acordo com seu ambiente local
+
+```bash
+cp .env.sample .env
+```
+
 ### Passos para rodar:
 
 ```bash

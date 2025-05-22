@@ -13,7 +13,7 @@ Content-Type: application/json
   "chassi": "9CG1C1234567890123",
   "numeroMotor": "1234567890",
   "modelo": "Honda CG 160",
-  "status": "Ativo",
+  "statusId": 1,
   "tagId": 1,
   "patioId": 1
 }
@@ -31,7 +31,7 @@ Content-Type: application/json
   "chassi": "9CG1C1234567890123",
   "numeroMotor": "1234567890",
   "modelo": "Honda CG 160",
-  "status": "Ativo",
+  "statusId": 1,
   "tagId": 1,
   "patioId": 1
 }

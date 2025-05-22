@@ -1,4 +1,5 @@
 namespace IottuModel
+
 {
     public class UsuarioModel
     {
@@ -10,3 +11,4 @@ namespace IottuModel
         public ICollection<PatioModel>? PatiosResponsaveis { get; set; }
     }
 }
+

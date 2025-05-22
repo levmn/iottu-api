@@ -2,6 +2,7 @@
 using IottuData;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace IottuBusiness;
 
@@ -15,10 +16,18 @@ public class MotoService
     }
 
     public List<MotoModel> GetMotos() =>
-        _context.Moto.ToList();
+        _context.Moto
+            .Include(m => m.Status)
+            .Include(m => m.Tag)
+            .Include(m => m.Patio)
+            .ToList();
 
     public MotoModel? GetMotoById(int id) =>
-        _context.Moto.FirstOrDefault(m => m.Id == id);
+        _context.Moto
+            .Include(m => m.Status)
+            .Include(m => m.Tag)
+            .Include(m => m.Patio)
+            .FirstOrDefault(m => m.Id == id);
 
     public MotoModel Create(MotoModel moto)
     {
@@ -37,7 +46,7 @@ public class MotoService
         existingMoto.Chassi = moto.Chassi;
         existingMoto.NumeroMotor = moto.NumeroMotor;
         existingMoto.Modelo = moto.Modelo;
-        existingMoto.Status = moto.Status;
+        existingMoto.StatusId = moto.StatusId;
         existingMoto.TagId = moto.TagId;
         existingMoto.PatioId = moto.PatioId;
 

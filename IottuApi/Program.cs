@@ -25,6 +25,7 @@ builder.Services.AddScoped<MotoService>();
 builder.Services.AddScoped<AntenaService>();
 builder.Services.AddScoped<TagService>();
 builder.Services.AddScoped<PatioService>();
+builder.Services.AddScoped<StatusService>();
 // builder.Services.AddSingleton<MotoService>(); // Para testar a API com dados em memória
 
 var app = builder.Build();

@@ -1,0 +1,29 @@
+@baseUrl = http://localhost:5203
+
+### 🟢 GET - Listar todos os status
+GET {{baseUrl}}/api/Status
+Accept: application/json
+
+### 🔵 POST - Criar um novo status
+POST {{baseUrl}}/api/Status
+Content-Type: application/json
+
+{
+  "descricao": "Disponível"
+}
+
+### 🟡 GET - Obter status por ID
+GET {{baseUrl}}/api/Status/1
+Accept: application/json
+
+### 🟠 PUT - Atualizar status por ID
+PUT {{baseUrl}}/api/Status/1
+Content-Type: application/json
+
+{
+  "descricao": "Indisponível"
+}
+
+### 🔴 DELETE - Remover status por ID
+DELETE {{baseUrl}}/api/Status/1
+Accept: application/json 

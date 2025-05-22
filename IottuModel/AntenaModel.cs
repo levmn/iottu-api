@@ -1,4 +1,5 @@
 namespace IottuModel
+
 {
     public class AntenaModel
     {
@@ -13,3 +14,4 @@ namespace IottuModel
         public ICollection<TagModel>? Tags { get; set; }
     }
 }
+

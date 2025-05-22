@@ -28,7 +28,7 @@ public class MotoController
     [HttpPost]
     public IActionResult Post([FromBody] MotoModel moto)
     {
-        if (string.IsNullOrWhiteSpace(moto.Status))
+        if (moto.StatusId == 0)
             return BadRequest("Status é obrigatório.");
         var createdMoto = motoService.Create(moto);
         return CreatedAtAction(nameof(Get), new { id = createdMoto.Id }, createdMoto);
@@ -39,6 +39,9 @@ public class MotoController
     {
         if (moto == null)
             return BadRequest("Moto inválida.");
+
+        if (moto.StatusId == 0)
+            return BadRequest("Status é obrigatório.");
 
         moto.Id = id;
 

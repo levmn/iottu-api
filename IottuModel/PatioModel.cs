@@ -1,4 +1,5 @@
 namespace IottuModel
+
 {
     public class PatioModel
     {
@@ -16,3 +17,4 @@ namespace IottuModel
         public ICollection<AntenaModel>? Antenas { get; set; }
     }
 }
+
