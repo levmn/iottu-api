@@ -6,11 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace IottuData.Migrations
 {
     /// <inheritdoc />
-    public partial class IottuInitialMigrations : Migration
+    public partial class IottuMigrationsCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Status",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Descricao = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Status", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
@@ -105,7 +118,7 @@ namespace IottuData.Migrations
                     Chassi = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     NumeroMotor = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     Modelo = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    Status = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    StatusId = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     TagId = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     PatioId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
@@ -116,6 +129,12 @@ namespace IottuData.Migrations
                         name: "FK_Moto_Patio_PatioId",
                         column: x => x.PatioId,
                         principalTable: "Patio",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Moto_Status_StatusId",
+                        column: x => x.StatusId,
+                        principalTable: "Status",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -135,6 +154,11 @@ namespace IottuData.Migrations
                 name: "IX_Moto_PatioId",
                 table: "Moto",
                 column: "PatioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Moto_StatusId",
+                table: "Moto",
+                column: "StatusId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Moto_TagId",
@@ -158,6 +182,9 @@ namespace IottuData.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Moto");
+
+            migrationBuilder.DropTable(
+                name: "Status");
 
             migrationBuilder.DropTable(
                 name: "Tag");

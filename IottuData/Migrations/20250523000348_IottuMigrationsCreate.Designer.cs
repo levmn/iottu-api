@@ -12,8 +12,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace IottuData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250521003216_IottuInitialMigrations")]
-    partial class IottuInitialMigrations
+    [Migration("20250523000348_IottuMigrationsCreate")]
+    partial class IottuMigrationsCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,51 @@ namespace IottuData.Migrations
                     b.ToTable("Antena");
                 });
 
+            modelBuilder.Entity("IottuModel.MotoModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("NUMBER(10)");
+
+                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Chassi")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("NumeroMotor")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<int>("PatioId")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<string>("Placa")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatioId");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("TagId")
+                        .IsUnique();
+
+                    b.ToTable("Moto");
+                });
+
             modelBuilder.Entity("IottuModel.PatioModel", b =>
                 {
                     b.Property<int>("Id")
@@ -90,7 +135,7 @@ namespace IottuData.Migrations
                     b.ToTable("Patio");
                 });
 
-            modelBuilder.Entity("IottuModel.UsuarioModel", b =>
+            modelBuilder.Entity("IottuModel.StatusMotoModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,68 +143,16 @@ namespace IottuData.Migrations
 
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("Senha")
+                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Status");
                 });
 
-            modelBuilder.Entity("MotoModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Chassi")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("Modelo")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("NumeroMotor")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<int>("PatioId")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<string>("Placa")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PatioId");
-
-                    b.HasIndex("TagId")
-                        .IsUnique();
-
-                    b.ToTable("Moto");
-                });
-
-            modelBuilder.Entity("TagModel", b =>
+            modelBuilder.Entity("IottuModel.TagModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -194,6 +187,31 @@ namespace IottuData.Migrations
                     b.ToTable("Tag");
                 });
 
+            modelBuilder.Entity("IottuModel.UsuarioModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("NUMBER(10)");
+
+                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
+                });
+
             modelBuilder.Entity("IottuModel.AntenaModel", b =>
                 {
                     b.HasOne("IottuModel.PatioModel", "Patio")
@@ -205,6 +223,33 @@ namespace IottuData.Migrations
                     b.Navigation("Patio");
                 });
 
+            modelBuilder.Entity("IottuModel.MotoModel", b =>
+                {
+                    b.HasOne("IottuModel.PatioModel", "Patio")
+                        .WithMany("Motos")
+                        .HasForeignKey("PatioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IottuModel.StatusMotoModel", "Status")
+                        .WithMany("Motos")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IottuModel.TagModel", "Tag")
+                        .WithOne("Moto")
+                        .HasForeignKey("IottuModel.MotoModel", "TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patio");
+
+                    b.Navigation("Status");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("IottuModel.PatioModel", b =>
                 {
                     b.HasOne("IottuModel.UsuarioModel", "Responsavel")
@@ -214,26 +259,7 @@ namespace IottuData.Migrations
                     b.Navigation("Responsavel");
                 });
 
-            modelBuilder.Entity("MotoModel", b =>
-                {
-                    b.HasOne("IottuModel.PatioModel", "Patio")
-                        .WithMany("Motos")
-                        .HasForeignKey("PatioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TagModel", "Tag")
-                        .WithOne("Moto")
-                        .HasForeignKey("MotoModel", "TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Patio");
-
-                    b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("TagModel", b =>
+            modelBuilder.Entity("IottuModel.TagModel", b =>
                 {
                     b.HasOne("IottuModel.AntenaModel", "Antena")
                         .WithMany("Tags")
@@ -256,14 +282,19 @@ namespace IottuData.Migrations
                     b.Navigation("Motos");
                 });
 
+            modelBuilder.Entity("IottuModel.StatusMotoModel", b =>
+                {
+                    b.Navigation("Motos");
+                });
+
+            modelBuilder.Entity("IottuModel.TagModel", b =>
+                {
+                    b.Navigation("Moto");
+                });
+
             modelBuilder.Entity("IottuModel.UsuarioModel", b =>
                 {
                     b.Navigation("PatiosResponsaveis");
-                });
-
-            modelBuilder.Entity("TagModel", b =>
-                {
-                    b.Navigation("Moto");
                 });
 #pragma warning restore 612, 618
         }
