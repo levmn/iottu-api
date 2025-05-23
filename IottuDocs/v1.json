@@ -6,10 +6,137 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5203"
+      "url": "http://localhost:5203/"
     }
   ],
   "paths": {
+    "/api/Antena": {
+      "get": {
+        "tags": [
+          "Antena"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Antena"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AntenaModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AntenaModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AntenaModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Antena/{id}": {
+      "get": {
+        "tags": [
+          "Antena"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Antena"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AntenaModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AntenaModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AntenaModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Antena"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Moto": {
       "get": {
         "tags": [
@@ -29,17 +156,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MotoModel"
+                "$ref": "#/components/schemas/MotoModel3"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/MotoModel"
+                "$ref": "#/components/schemas/MotoModel3"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/MotoModel"
+                "$ref": "#/components/schemas/MotoModel3"
               }
             }
           },
@@ -93,17 +220,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MotoModel"
+                "$ref": "#/components/schemas/MotoModel3"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/MotoModel"
+                "$ref": "#/components/schemas/MotoModel3"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/MotoModel"
+                "$ref": "#/components/schemas/MotoModel3"
               }
             }
           },
@@ -136,13 +263,598 @@
           }
         }
       }
+    },
+    "/api/Patio": {
+      "get": {
+        "tags": [
+          "Patio"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Patio"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatioModel2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatioModel2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatioModel2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Patio/{id}": {
+      "get": {
+        "tags": [
+          "Patio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Patio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatioModel2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatioModel2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatioModel2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Patio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Status"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusMotoModel2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusMotoModel2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusMotoModel2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Status/{id}": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Status"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusMotoModel2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusMotoModel2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusMotoModel2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Status"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tag": {
+      "get": {
+        "tags": [
+          "Tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tag"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tag/{id}": {
+      "get": {
+        "tags": [
+          "Tag"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tag"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TagModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tag"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioModel2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioModel2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioModel2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/{id}": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioModel2"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioModel2"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioModel2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AntenaModel": {
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codigo": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "patioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "patio": {
+            "$ref": "#/components/schemas/PatioModel"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TagModel"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "AntenaModel2": {
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codigo": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "patioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "patio": {
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TagModel"
+            },
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
       "MotoModel": {
         "required": [
-          "status"
+          "modelo"
         ],
         "type": "object",
         "properties": {
@@ -162,16 +874,335 @@
           "modelo": {
             "type": "string"
           },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "status": {
-            "type": "string"
+            "$ref": "#/components/schemas/StatusMotoModel"
           },
           "tagId": {
             "type": "integer",
             "format": "int32"
           },
+          "tag": {
+            "$ref": "#/components/schemas/TagModel"
+          },
           "patioId": {
             "type": "integer",
             "format": "int32"
+          },
+          "patio": { }
+        }
+      },
+      "MotoModel2": {
+        "required": [
+          "modelo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "placa": {
+            "type": "string"
+          },
+          "chassi": {
+            "type": "string"
+          },
+          "numeroMotor": {
+            "type": "string"
+          },
+          "modelo": {
+            "type": "string"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": { },
+          "tagId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tag": { },
+          "patioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "patio": {
+            "$ref": "#/components/schemas/PatioModel2"
+          }
+        },
+        "nullable": true
+      },
+      "MotoModel3": {
+        "required": [
+          "modelo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "placa": {
+            "type": "string"
+          },
+          "chassi": {
+            "type": "string"
+          },
+          "numeroMotor": {
+            "type": "string"
+          },
+          "modelo": {
+            "type": "string"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusMotoModel2"
+          },
+          "tagId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tag": {
+            "$ref": "#/components/schemas/TagModel"
+          },
+          "patioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "patio": { }
+        }
+      },
+      "PatioModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cep": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "cidade": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "capacidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "responsavelId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "responsavel": {
+            "$ref": "#/components/schemas/UsuarioModel"
+          },
+          "motos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MotoModel"
+            },
+            "nullable": true
+          },
+          "antenas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AntenaModel"
+            },
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "PatioModel2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cep": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "cidade": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "capacidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "responsavelId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "responsavel": {
+            "nullable": true
+          },
+          "motos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MotoModel"
+            },
+            "nullable": true
+          },
+          "antenas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AntenaModel"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "StatusMotoModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "motos": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          }
+        }
+      },
+      "StatusMotoModel2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "motos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MotoModel"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "TagModel": {
+        "required": [
+          "codigoRFID",
+          "ssidWifi",
+          "latitude",
+          "longitude",
+          "dataHora"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codigoRFID": {
+            "type": "string"
+          },
+          "ssidWifi": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "dataHora": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moto": {
+            "$ref": "#/components/schemas/MotoModel2"
+          },
+          "antenaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "antena": {
+            "$ref": "#/components/schemas/AntenaModel2"
+          }
+        }
+      },
+      "UsuarioModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          },
+          "patiosResponsaveis": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatioModel2"
+            },
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "UsuarioModel2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          },
+          "patiosResponsaveis": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatioModel2"
+            },
+            "nullable": true
           }
         }
       }
@@ -179,7 +1210,22 @@
   },
   "tags": [
     {
+      "name": "Antena"
+    },
+    {
       "name": "Moto"
+    },
+    {
+      "name": "Patio"
+    },
+    {
+      "name": "Status"
+    },
+    {
+      "name": "Tag"
+    },
+    {
+      "name": "Usuario"
     }
   ]
 }
