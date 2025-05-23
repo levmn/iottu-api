@@ -53,15 +53,12 @@ A API possui os seguintes recursos disponíveis via HTTP:
 
 ### Configuração do Ambiente
 
-O projeto utiliza variáveis de ambiente para configuração. Existem dois arquivos importantes:
-
-- `.env.sample`: Arquivo de exemplo que contém todas as variáveis necessárias com valores padrão
-- `.env`: Arquivo real com as configurações do ambiente (não versionado)
+O projeto utiliza variáveis de ambiente para configuração do banco de dados Oracle, onde serão criadas as migrations do projeto.
 
 Para configurar o ambiente:
 
 1. Copie o arquivo `.env.sample` para `.env`
-2. Ajuste os valores no arquivo `.env` de acordo com seu ambiente local
+2. Ajuste os valores no arquivo `.env` com as suas credenciais do banco de dados Oracle
 
 ```bash
 cp .env.sample .env
@@ -92,17 +89,19 @@ POST /api/moto
 Content-Type: application/json
 
 {
-  "status": "Ativa",
-  "modelo": "Yamaha XTZ",
-  "placa": "XYZ-1234",
+  "placa": "XYZ-5678",
+  "chassi": "9CG1C1234567890123",
+  "numeroMotor": "1234567890",
+  "modelo": "Honda CG 160",
+  "statusId": 1,
   "tagId": 1,
-  "patioId": 2
+  "patioId": 1
 }
 ```
 
 ---
 
-## 🧑‍💻 Desenvolvedores
+## 🧑‍💻 Desenvolvedores Iottu
 
 - [RM558948] [Allan Brito Moreira](https://github.com/Allanbm100)
 - [RM558868] [Caio Liang](https://github.com/caioliang)
